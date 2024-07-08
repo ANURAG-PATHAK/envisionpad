@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Open_Sans, Roboto_Mono } from 'next/font/google'
 import "./globals.css";
 import clsx from "clsx";
 
-const inter = Inter({ subsets: ["latin"] });
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-open-sans',
+})
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto-mono',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={clsx(inter.className, 'dark')}>{children}</body>
+    <html lang="en" className={`${openSans.variable} ${robotoMono.variable}  font-sans`}
+    >
+      <body className="dark">{children}</body>
     </html>
   );
 }
