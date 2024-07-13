@@ -20,12 +20,12 @@ export function DesktopNav({ className }: { className: string }) {
     <div className={clsx(className, "container flex justify-between items-center mx-6 my-2")}>
       <Link href="/" className="flex items-center">
         <Image src="/logo.png" alt="Logo" width={50} height={50} />
-        <div className="mx-2 text-lg">Envision Pad</div>
+        <div className="mx-2 text-lg italic font-bold">Envision<span className="text-[#3B81F6]">Pad</span></div>
       </Link>
       <nav className="flex justify-between my-4">
-        <Link className="mx-2" href="/">Home</Link>
-        <Link className="mx-2" href="/about">About</Link>
-        <Link className="mx-2" href="/contact">Contact</Link>
+        <Link className="mx-8" href="/">Home</Link>
+        <Link className="mx-8" href="/about">About</Link>
+        <Link className="mx-8" href="/pricing">Pricing</Link>
       </nav>
       <div>
         <Button className="mx-2">Login</Button>
@@ -38,11 +38,11 @@ export function DesktopNav({ className }: { className: string }) {
 export function MobileNav({ className }: { className: string }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className={clsx(className, "container flex flex-col my-4")}>
+    <div className={clsx(className, "container flex flex-col my-4 bottom-0")}>
       <div className={isOpen ? "hidden" : "flex justify-between md:hidden"}>
         <Link href="/" className="flex items-center">
           <Image src="/logo.png" alt="Logo" width={40} height={40} />
-          <div className="mx-2">Envision Pad</div>
+          <div className="mx-2 italic font-bold">Envision<span className="text-[#3B81F6]">Pad</span></div>
         </Link>
         <div className="">
           <Button variant={"ghost"} onClick={() => { setIsOpen(true) }} >
@@ -50,7 +50,7 @@ export function MobileNav({ className }: { className: string }) {
           </Button>
         </div>
       </div >
-      <div className={isOpen ? "flex flex-col md:hidden" : "hidden"}>
+      <div className={isOpen ? "fixed top-0 left-0 right-0 bottom-0 bg-[#020817] flex flex-col container mt-4 mr-1 md:hidden" : "hidden"}>
         <div className="self-end">
           <Button variant={"ghost"} onClick={() => { setIsOpen(false) }}>
             <MdClose className="text-2xl" />
@@ -59,13 +59,13 @@ export function MobileNav({ className }: { className: string }) {
         <nav className="flex flex-col items-center my-4">
           <Link className="my-2" href="/">Home</Link>
           <Link className="my-2" href="/about">About</Link>
-          <Link className="my-2" href="/contact">Contact</Link>
+          <Link className="mx-2" href="/pricing">Pricing</Link>
         </nav>
         <div className="flex flex-col my-4">
           <Button className="my-2">Login</Button>
           <Button className="my-2" variant={"secondary"}>Register</Button>
         </div>
       </div>
-    </div >
+    </div>
   )
 }
