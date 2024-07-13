@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="flex flex-col space-y-8 md:space-x-12">
         <div className="flex flex-col items-center justify-center">
           <div className="text-4xl md:text-6xl text-[#3B81F6]">Collaborate & Create</div>
-          <div className="text-4xl md:text-6xl">for brainstorming teams</div>
+          <div className="text-4xl md:text-6xl">for brainstorming sessions</div>
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="text-xl md:text-3xl">All-in-one markdown editor, collaborative canvas, </div>
