@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans, Roboto_Mono } from 'next/font/google'
 import "./globals.css";
-import clsx from "clsx";
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -27,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${openSans.variable} ${robotoMono.variable}  font-sans`}
     >
-      <body className="dark">{children}</body>
+      <body className="dark">
+        {children}
+      </body>
     </html>
   );
 }

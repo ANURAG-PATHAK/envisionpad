@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image"
-import { Button } from "./ui/button"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { MdMenu, MdClose } from "react-icons/md";
 import { useState } from "react";
 import clsx from "clsx";
+import Logo from "./logo";
 
 export default function Header() {
   return (
@@ -18,18 +19,19 @@ export default function Header() {
 export function DesktopNav({ className }: { className: string }) {
   return (
     <div className={clsx(className, "container flex justify-between items-center mx-6 my-2")}>
-      <Link href="/" className="flex items-center">
-        <Image src="/logo.png" alt="Logo" width={50} height={50} />
-        <div className="mx-2 text-lg italic font-bold">Envision<span className="text-[#3B81F6]">Pad</span></div>
-      </Link>
+      <Logo logoLink="/" imageSrc="/logo.png" imageAlt="Logo" className="flex items-center" />
       <nav className="flex justify-between my-4">
         <Link className="mx-8" href="/">Home</Link>
         <Link className="mx-8" href="/about">About</Link>
         <Link className="mx-8" href="/pricing">Pricing</Link>
       </nav>
       <div>
-        <Button className="mx-2">Login</Button>
-        <Button className="mx-2" variant={"secondary"}>Register</Button>
+        <Button className="mx-2">
+          <Link href="/auth/login">Login</Link>
+        </Button>
+        <Button className="mx-2" variant={"secondary"}>
+          <Link href="/auth/register">Register</Link>
+        </Button>
       </div>
     </div>
   )
@@ -40,10 +42,7 @@ export function MobileNav({ className }: { className: string }) {
   return (
     <div className={clsx(className, "container flex flex-col my-4 bottom-0")}>
       <div className={isOpen ? "hidden" : "flex justify-between md:hidden"}>
-        <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Logo" width={40} height={40} />
-          <div className="mx-2 italic font-bold">Envision<span className="text-[#3B81F6]">Pad</span></div>
-        </Link>
+        <Logo logoLink="/" imageSrc="/logo.png" imageAlt="Logo" className="flex items-center" />
         <div className="">
           <Button variant={"ghost"} onClick={() => { setIsOpen(true) }} >
             <MdMenu className="text-2xl" />
@@ -62,8 +61,12 @@ export function MobileNav({ className }: { className: string }) {
           <Link className="mx-2" href="/pricing">Pricing</Link>
         </nav>
         <div className="flex flex-col my-4">
-          <Button className="my-2">Login</Button>
-          <Button className="my-2" variant={"secondary"}>Register</Button>
+          <Button className="my-2">
+            <Link href="/auth/login">Login</Link>
+          </Button>
+          <Button className="my-2" variant={"secondary"}>
+            <Link href="/auth/register">Register</Link>
+          </Button>
         </div>
       </div>
     </div>
